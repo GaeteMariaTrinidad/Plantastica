@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+      <!-- Libreria JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="CSS/style.css">
+  <script src="JS/validaciones_sesion.js"></script>
+
+      <title>Productos</title>
+      <link rel="icon" href="assets/logo.png" type="image/x-icon">
+    </head>
+      <body>
+      
+  
+      <!--Navbar-->
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html"><h3><img src="assets/logo.png" alt="Logo" class="tamannio_logo">Plantástico</h3></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="donacion.html">Donaciones</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="..." role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Productos
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="plantas.html">Plantas</a></li>
+                  <li><a class="dropdown-item" href="maceteros.html">Maceteros</a></li>
+                  <li><a class="dropdown-item" href="accesorios.html">Accesorios</a></li>
+                  <li><a class="dropdown-item" href="productos.html">Ver todo</a></li>
+                </ul>
+              </li>
+  
+            </ul>
+            <form class="d-flex" role="search">
+              <!--Carrito de compras-->
+              <a href="carrito.html" class="btn"><h3><i class="bi bi-cart3"></i></h3></a>
+              <br>  
+              <!--Inicio de sesión-->  
+              <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#mdl_inicioSesion">
+                  <i class="bi bi-person-circle"></i> Iniciar sesión
+              </button>
+            </form>
+          </div>
+        </div>  
+      </nav>  
+      <br>
+  
+      <!--Breadcrumb-->
+      <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Productos</li>
+          </ol>
+      </nav> 
+  
+
+      <!-- Tarjetas -->
+    <div class="container">
+      <!-- Plantas -->
+      <div class="row" style="text-align: center;">
+        <div class="col-md-4 col-sm-12 margen_inferior_cards">
+          <div class="card cards_t">
+            <img class="card-img-top" src="assets/planta01.jpg" alt="Card image" style="width:100%;max-width: 400px;">
+            <div class="card-body">
+              <h4 class="card-title">Strobilanthes dyerianus</h4>
+              <p class="card-text">$4.990</p>
+              <a href="#" class="btn boton-tarjeta">Ver más</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-4 col-sm-12 margen_inferior_cards">
+          <div class="card cards_t">
+            <img class="card-img-top" src="assets/planta02.jpg" alt="Card image" style="width:100%;max-width: 400px;">
+            <div class="card-body">
+              <h4 class="card-title">Ficus Altissima</h4>
+              <p class="card-text">$8.990</p>
+              <a href="#" class="btn boton-tarjeta">Ver más</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-12 margen_inferior_cards">
+          <div class="card cards_t">
+            <img class="card-img-top" src="assets/planta03.jpg" alt="Card image" style="width:100%;max-width: 400px;">
+            <div class="card-body">
+              <h4 class="card-title">Pilea Cadierei</h4>
+              <p class="card-text">$4.990</p>
+              <a href="#" class="btn boton-tarjeta">Ver más</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row" style="text-align: center;">
+        <div class="col-md-4 col-sm-12 margen_inferior_cards">
+          <div class="card cards_t">
+            <img class="card-img-top" src="assets/planta04.jpg" alt="Card image" style="width:100%;max-width: 400px;">
+            <div class="card-body">
+              <h4 class="card-title">Monstera deliciosa</h4>
+              <p class="card-text">$34.990</p>
+              <a href="#" class="btn boton-tarjeta">Ver más</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-4 col-sm-12 margen_inferior_cards">
+          <div class="card cards_t">
+            <img class="card-img-top" src="assets/planta05.jpg" alt="Card image" style="width:100%;max-width: 400px;">
+            <div class="card-body">
+              <h4 class="card-title">Filodendro longuifolio</h4>
+              <p class="card-text">$15.990</p>
+              <a href="#" class="btn boton-tarjeta">Ver más</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-12 margen_inferior_cards">
+          <div class="card cards_t">
+            <img class="card-img-top" src="assets/planta06.jpg" alt="Card image" style="width:100%;max-width: 400px;">
+            <div class="card-body">
+              <h4 class="card-title">Pothus Marble Queen</h4>
+              <p class="card-text">$6.990</p>
+              <a href="#" class="btn boton-tarjeta">Ver más</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Maceteros-->
+      <div class="row" style="text-align: center;">
+        <div class="col-md-4 col-sm-12 margen_inferior_cards">
+          <div class="card cards_t">
+            <img class="card-img-top" src="assets/macetero01.jpg" alt="Card image" style="width:100%;max-width: 400px;">
+            <div class="card-body">
+              <h4 class="card-title">Portamaceta dorado 20cm</h4>
+              <p class="card-text">$14.990</p>
+              <a href="#" class="btn boton-tarjeta">Ver más</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-4 col-sm-12 margen_inferior_cards">
+          <div class="card cards_t">
+            <img class="card-img-top" src="assets/macetero02.jpg" alt="Card image" style="width:100%;max-width: 400px;">
+            <div class="card-body">
+              <h4 class="card-title">Canasto fibra natural</h4>
+              <p class="card-text">$9.990</p>
+              <a href="#" class="btn boton-tarjeta">Ver más</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-12 margen_inferior_cards">
+          <div class="card cards_t">
+            <img class="card-img-top" src="assets/macetero03.jpg" alt="Card image" style="width:100%;max-width: 400px;">
+            <div class="card-body">
+              <h4 class="card-title">Maceta rosada mestiza 15cm</h4>
+              <p class="card-text">$8.990</p>
+              <a href="#" class="btn boton-tarjeta">Ver más</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accesorios -->
+      <div class="row" style="text-align: center;">
+        <div class="col-md-4 col-sm-12 margen_inferior_cards">
+          <div class="card cards_t">
+            <img class="card-img-top" src="assets/accesorio01.jpg" alt="Card image" style="width:100%;max-width: 400px;">
+            <div class="card-body">
+              <h4 class="card-title">Sustrato Premium 10lts</h4>
+              <p class="card-text">$5.990</p>
+              <a href="#" class="btn boton-tarjeta">Ver más</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-4 col-sm-12 margen_inferior_cards">
+          <div class="card cards_t">
+            <img class="card-img-top" src="assets/accesorio02.jpg" alt="Card image" style="width:100%;max-width: 400px;">
+            <div class="card-body">
+              <h4 class="card-title">Medidor Humedad Luz - Phl</h4>
+              <p class="card-text">$15.990</p>
+              <a href="#" class="btn boton-tarjeta">Ver más</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-12 margen_inferior_cards">
+          <div class="card cards_t">
+            <img class="card-img-top" src="assets/accesorio03.jpg" alt="Card image" style="width:100%;max-width: 400px;">
+            <div class="card-body">
+              <h4 class="card-title">Jabon Potásico Neem</h4>
+              <p class="card-text">$4.990</p>
+              <a href="#" class="btn boton-tarjeta">Ver más</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+
+      <!--Cards
+      <br>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">
+            Primer producto
+            <div class="card" style="width: 18rem;">
+              <img src="assets/planta01.jpg" style="width: 18rem;" class="card-img-top" alt="...">
+                  <div class="card-body">
+                      <h5 class="card-title">Strobilanthes dyerianus</h5>
+                      <p class="card-text">$4.990</p>
+                      
+
+                      Button toast
+                      <a href="productos.html"> <button type="button" class="btn btn-success" id="liveToastBtn">
+                      Agregar</button></a>
+                      <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                          <div class="toast-header">
+                            <img src="..." class="rounded me-2" alt="...">
+                            <strong class="me-auto">Carrito</strong>
+                            <small>Ahora</small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                          </div>
+                          <div class="toast-body">
+                            Producto agregado correctamente.
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col">
+            <div class="card" style="width: 18rem;">
+              <img src="assets/planta02.jpg" style="width: 18rem;" class="card-img-top" alt="...">
+                  <div class="card-body">
+                      <h5 class="card-title">Ficus Altissima</h5>
+                      <p class="card-text">$8.990</p>
+                      <a href="maceteros.html" class="btn btn-success">Agregar</a>
+                  </div>
+              </div>
+          </div>
+          <div class="col">
+            <div class="card" style="width: 18rem;">
+              <img src="assets/planta03.jpg" style="width: 18rem;" class="card-img-top" alt="...">
+                  <div class="card-body">
+                      <h5 class="card-title">Pilea Cadierei</h5>
+                      <p class="card-text">$4.990</p>
+                      <a href="maceteros.html" class="btn btn-success">Agregar</a>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">
+            <div class="card" style="width: 18rem;">
+              <img src="assets/planta04.jpg" style="height: 18rem;" class="card-img-top" alt="...">
+                  <div class="card-body">
+                      <h5 class="card-title">Monstera deliciosa</h5>
+                      <p class="card-text">$34.990</p>
+                      <a href="maceteros.html" class="btn btn-success">Agregar</a>
+                  </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card" style="width: 18rem;">
+              <img src="assets/planta05.jpg" style="height: 18rem;" class="card-img-top" alt="...">
+                  <div class="card-body">
+                      <h5 class="card-title">Filodendro longuifolio</h5>
+                      <p class="card-text">$15.990</p>
+                      <a href="maceteros.html" class="btn btn-success">Agregar</a>
+                  </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card" style="width: 18rem;">
+              <img src="assets/planta06.jpg" style="height: 18rem;" class="card-img-top" alt="...">
+                  <div class="card-body">
+                      <h5 class="card-title">Pothus Marble Queen</h5>
+                      <p class="card-text">$6.990</p>
+                      <a href="maceteros.html" class="btn btn-success">Agregar</a>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">
+            <div class="card" style="width: 18rem;">
+              <img src="assets/accesorio01.jpg" style="width: 18rem;" class="card-img-top" alt="...">
+                  <div class="card-body">
+                      <h5 class="card-title">Sustrato Premium 10lts</h5>
+                      <p class="card-text">$5.990</p>
+                      <a href="maceteros.html" class="btn btn-success">Agregar</a>
+                  </div>
+              </div>
+          </div>
+          <div class="col">
+            <div class="card" style="width: 18rem;">
+              <img src="assets/accesorio02.jpg" style="width: 18rem;" class="card-img-top" alt="...">
+                  <div class="card-body">
+                      <h5 class="card-title">Medidor Humedad Luz - Ph</h5>
+                      <p class="card-text">$15.990</p>
+                      <a href="maceteros.html" class="btn btn-success">Agregar</a>
+                  </div>
+              </div>
+          </div>
+          <div class="col">
+            <div class="card" style="width: 18rem;">
+              <img src="assets/accesorio03.jpg" style="width: 18rem;" class="card-img-top" alt="...">
+                  <div class="card-body">
+                      <h5 class="card-title">Jabon Potásico + Aceite de Neem</h5>
+                      <p class="card-text">$4.500</p>
+                      <a href="maceteros.html" class="btn btn-success">Agregar</a>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">
+            <div class="card" style="width: 18rem">
+              <img
+                src="assets/macetero01.jpg"
+                style="width: 18rem"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Portamaceta dorado 20cm</h5>
+                <p class="card-text">$14.990</p>
+                <a href="maceteros.html" class="btn btn-success">Agregar</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card" style="width: 18rem">
+              <img
+                src="assets/macetero02.jpg"
+                style="width: 18rem"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Canasto fibra natural</h5>
+                <p class="card-text">$9.990</p>
+                <a href="maceteros.html" class="btn btn-success">Agregar</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card" style="width: 18rem">
+              <img
+                src="assets/macetero03.jpg"
+                style="width: 18rem"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Maceta rosada mestiza 15cm</h5>
+                <p class="card-text">$8.990</p>
+                <a href="maceteros.html" class="btn btn-success">Agregar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <br />
+      <br />
+  -->
+      <!--Pagination-->
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+            <a class="page-link">Anterior</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Siguiente</a>
+          </li>
+        </ul>
+      </nav>
+  
+      <!--Modal Inicio sesión-->
+  <div class="modal fade" id="mdl_inicioSesion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Ingresar </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+
+          <form action="iniciosesion.html" method="POST" id="form1">
+            <div class="modal-body">
+              <p class="alert alert-warning" role="alert" id="div_validacion"></p>
+              <div class="mb-3">
+                <label for="idcorreo" class="form-label">Correo Electrónico</label>
+                <input type="text" class="form-control" id="idcorreo" placeholder="nombre@correo.com">
+              </div>
+              <div class="mb-3">
+                <label for="idclave" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="idclave" placeholder="Contraseña">
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-success">Ingresar</button>
+              
+            </div>
+            
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+      <!--Footer-->
+      <div class="b-example-divider"></div>
+      <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+          <div class="col-md-4 d-flex align-items-center">  
+            © 2023 Copyright
+          </div>
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-body-secondary" href="#"><i class="bi bi-instagram" ></i></a></li>
+            <li class="ms-3"><a class="text-body-secondary" href="#"><i class="bi bi-facebook"></i></a></li>
+            <li class="ms-3"><a class="text-body-secondary" href="#"><i class="bi bi-whatsapp"></i></a></li>
+          </ul>
+        </footer>
+      </div> 
+  </html>
+

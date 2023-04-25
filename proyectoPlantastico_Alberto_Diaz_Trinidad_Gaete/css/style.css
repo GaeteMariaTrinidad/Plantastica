@@ -1,0 +1,42 @@
+body {
+    background-color: rgba(216, 243, 234, 0.979);
+}
+
+
+.boton-tarjeta {
+    width: 100%;
+    border: 0px;
+    background: rgba(8, 100, 8, 0.61);
+    color: white;
+}
+
+.btn-verde {
+    background: rgba(8, 100, 8, 0.61);
+    color: white;
+}
+
+h3 {
+    color: rgba(14, 80, 14, 0.61);
+}
+
+.logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.tamannio_logo{
+    width: 100%;
+    max-width: 80px;
+}
+
+.cards_t{
+    width: 100%;
+    max-width: 400px;
+}
+
+.margen_inferior_cards{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center !important;
+}

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <!-- Libreria JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="CSS/style.css">
+  <script src="JS/validaciones_sesion.js"></script>
+  <script src="JS/funciones.js"></script>
+  <title>Proyecto Jardín</title>
+  <link rel="icon" href="assets/logo.png" type="image/x-icon">
+
+</head>
+
+<body>
+
+
+  <!--Navbar-->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <h3><img src="assets/logo.png" alt="Logo" class="tamannio_logo">Plantástico</h3>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="donacion.html">Donaciones</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="..." role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Productos
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="plantas.html">Plantas</a></li>
+              <li><a class="dropdown-item" href="maceteros.html">Maceteros</a></li>
+              <li><a class="dropdown-item" href="accesorios.html">Accesorios</a></li>
+              <li><a class="dropdown-item" href="productos.html">Ver todo</a></li>
+              <!--Aquí podríamos poner un "Nosotros" y poner el contexto del negocio-->
+            </ul>
+
+
+          </li>
+
+        </ul>
+        <form class="d-flex" role="search">
+          <!--Carrito de compras-->
+          <a href="carrito.html" class="btn">
+            <h3><i class="bi bi-cart3"></i></h3>
+          </a>
+          <br>
+          <!--Inicio de sesión-->
+          <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
+            data-bs-target="#mdl_inicioSesion">
+            <i class="bi bi-person-circle"></i> Iniciar sesión
+          </button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!--Carousel-->
+  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class="active"
+        aria-current="true"></button>
+    </div>
+    <div class="carousel-inner">
+      <!--Imagen 1 carrusel-->
+      <div class="carousel-item">
+        <img src="assets/caroussel01.png " class="img-fluid" alt="img01">
+        <div class="container">
+          <div class="carousel-caption text-start">
+            <h1>Tu ayuda nos importa.</h1>
+            <p>Con tu aporte, vas a ayudar a la fundación y crear un mundo mejor. </p>
+            <p><a class="btn btn-lg btn-success" href="donacion.html">Haz tu aporte</a></p>
+          </div>
+        </div>
+      </div>
+      <!--Imagen 2 carrusel-->
+      <div class="carousel-item">
+        <img src="assets/caroussel02.png " class="img-fluid" alt="img02">
+        <div class="container">
+          <div class="carousel-caption">
+            <h1>Abril, Mes de la Tierra</h1>
+            <p>Tienda online de plantas de interior y exterior en diferentes tamaños y maceteros.</p>
+            <p><a class="btn btn-lg btn-success" href="productos.html">Ver más</a></p>
+          </div>
+        </div>
+      </div>
+      <!--Imagen 3 carrusel-->
+      <div class="carousel-item active">
+        <img src="assets/caroussel03.png" class="img-fluid" alt="img03">
+        <div class="container">
+          <div class="carousel-caption text-end">
+            <h1>Insumos para jardín</h1>
+            <p>Todo lo necesario en un solo lugar, visitanos y ayuda a dar vida.</p>
+            <p><a class="btn btn-lg btn-success" href="productos.html">Ver más</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <br>
+  <br>
+
+
+
+  <!-- Tarjetas -->
+  <div class="container">
+    <div class="row" style="text-align: center;">
+      <div class="col-md-4 col-sm-12 margen_inferior_cards">
+        <div class="card cards_t">
+          <img class="card-img-top" src="assets/gomero.jpg" alt="Card image" style="width:100%;max-width: 400px;">
+          <div class="card-body">
+            <h4 class="card-title">Plantas</h4>
+            <p class="card-text">Llena de vida tu hogar con una planta y elige el momento ideal para regalar vida.</p>
+            <a href="plantas.html" class="btn boton-tarjeta">Ver más</a>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-4 col-sm-12 margen_inferior_cards">
+        <div class="card cards_t">
+          <img class="card-img-top" src="assets/macetero.jpg" alt="Card image" style="width:100%;max-width: 400px;">
+          <div class="card-body">
+            <h4 class="card-title">Maceteros</h4>
+            <p class="card-text">Maceteros de diferentes tamaños, Grandes, Medianos y chicos. Variedad de diseño.</p>
+            <a href="maceteros.html" class="btn boton-tarjeta">Ver más</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-12 margen_inferior_cards">
+        <div class="card cards_t">
+          <img class="card-img-top" src="assets/accesorios.jpg" alt="Card image" style="width:100%;max-width: 400px;">
+          <div class="card-body">
+            <h4 class="card-title">Accesorios</h4>
+            <p class="card-text">Sustratos adecuados para las necesidades de diferentes especies vegetales.</p>
+            <a href="accesorios.html" class="btn boton-tarjeta">Ver más</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--API economía-->
+  <br>
+  <button type="button" class="btn btn-success" onclick="economia()">
+    Mostrar Ind. Económicos
+</button>
+
+<br />
+
+<ol id="ol_economia" class="list-group list-group-numbered">
+
+</ol>
+
+  <!--Modal Inicio sesión-->
+  <div class="modal fade" id="mdl_inicioSesion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Ingresar </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+
+          <form action="iniciosesion.html" method="POST" id="form1">
+            <div class="modal-body">
+              <p class="alert alert-warning" role="alert" id="div_validacion"></p>
+              <div class="mb-3">
+                <label for="idcorreo" class="form-label">Correo Electrónico</label>
+                <input type="text" class="form-control" id="idcorreo" placeholder="nombre@correo.com">
+              </div>
+              <div class="mb-3">
+                <label for="idclave" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="idclave" placeholder="Contraseña">
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-success">Ingresar</button>
+              
+            </div>
+            
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Footer-->
+  <div class="b-example-divider"></div>
+
+  <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        © 2023 Copyright
+      </div>
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a class="text-body-secondary" href="#"><i class="bi bi-instagram"></i></a></li>
+        <li class="ms-3"><a class="text-body-secondary" href="#"><i class="bi bi-facebook"></i></a></li>
+        <li class="ms-3"><a class="text-body-secondary" href="#"><i class="bi bi-whatsapp"></i></a></li>
+      </ul>
+    </footer>
+  </div>
+</body>
+
+</html>
