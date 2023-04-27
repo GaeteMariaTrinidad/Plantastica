@@ -38,4 +38,76 @@ function economia() {
       }
   });                                                                                                                                             
 }
+
+function enviarInformacion(){
+  var correo = $("#idcorreito").val();
+  var contrasena = $("#idclavecita").val();
+  var nombre = $("#idnombre").val();
+  var apellido = $("#idapellido").val();
+
+  var data = {
+    nombreFuncion: "ClienteAlmacenar",
+    parametros: [correo,contrasena, nombre, apellido]
+
+  };
+
+  $.ajax({
+    method: "POST",
+    url: "https://fer-sepulveda.cl/API_PLANTAS/api-service.php",
+    data: JSON.stringify(data),
+    success: function (response) {
+      if(response.result[0].RESPUESTA == 'OK') {  
+      } else if (response.result[0].RESPUESTA == 'ERR01') {
+
+      }
+    },
+    error: function (error) {
+      console.log(error);
+    }
+  });
+}
+
+function ingresarSesion(){
+  var correoLogin = $("#idcorreo").val();
+  var contrasenaLogin = $("#idclave").val();
+
+  var data = {
+    nombreFuncion: "ClienteLogin",
+    parametros: [correoLogin,contrasenaLogin]
+  };
+
+  $.ajax({
+    method: "POST",
+    url: "https://fer-sepulveda.cl/API_PLANTAS/api-service.php",
+    data: JSON.stringify(data),
+    success: function (response) {
+      if (response.result == 'LOGIN OK'){
+        const toast = swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 4000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', swal.stopTimer)
+            toast.addEventListener('mouseleave', swal.resumeTimer)
+          }
+        })
+
+        toast.fire({
+          icon: 'warning',
+          tittle: 'credenciales inválidas'
+        });
+      }
+
+      console.log(response);
+
+    },
+    error: function (error) {
+      console.log(error);
+    }
+  });
+}
+  
+
     

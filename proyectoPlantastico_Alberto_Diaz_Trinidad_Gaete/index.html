@@ -71,6 +71,11 @@
             data-bs-target="#mdl_inicioSesion">
             <i class="bi bi-person-circle"></i> Iniciar sesión
           </button>
+          <!--Modal registro API profe-->
+            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
+            data-bs-target="#mdl_apiProfe">
+            Registrarse
+          </button>
         </form>
       </div>
     </div>
@@ -198,7 +203,7 @@
 
         <div class="modal-body">
 
-          <form action="iniciosesion.html" method="POST" id="form1">
+        <!--  <form action="iniciosesion.html" method="POST" id="form1">-->
             <div class="modal-body">
               <p class="alert alert-warning" role="alert" id="div_validacion"></p>
               <div class="mb-3">
@@ -213,16 +218,60 @@
 
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="submit" class="btn btn-success">Ingresar</button>
+              <button type="submit" class="btn btn-success" onclick="ingresarSesion()">Ingresar</button>
               
             </div>
             
-          </form>
+          <!--</form>-->
         </div>
       </div>
     </div>
   </div>
+  <!--Modal API Profe-->
+  <br>
+  <div class="modal fade" id="mdl_apiProfe" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
 
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Regístrate aquí</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+
+          <!--<form action="#" method="POST" id="form1">-->
+            <div class="modal-body">
+    
+              <div class="mb-3">
+                <label for="idcorreito" class="form-label">Correo Electrónico</label>
+                <input type="text" class="form-control" id="idcorreito" >
+              </div>
+              <div class="mb-3">
+                <label for="idclavecita" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="idclavecita" >
+              </div>
+              <div class="mb-3">
+                <label for="idnombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="idnombre" >
+              </div>
+              <div class="mb-3">
+                <label for="idapellido" class="form-label">Apellido</label>
+                <input type="text" class="form-control" id="idapellido" >
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-success" onclick="enviarInformacion()">Enviar Información</button>
+              
+            </div>
+            
+          <!--</form>-->
+        </div>
+      </div>
+    </div>
+  </div>
   <!--Footer-->
   <div class="b-example-divider"></div>
 
