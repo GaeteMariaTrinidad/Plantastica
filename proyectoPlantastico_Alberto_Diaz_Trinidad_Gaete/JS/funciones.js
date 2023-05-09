@@ -29,8 +29,7 @@ function economia() {
           $("#ol_economia").empty();
 
           $("#ol_economia").append('<li class="list-group-item d-flex justify-content-between align-items-start"> <div class="ms-2 me-auto"> <div class="fw-bold">' + response.dolar.valor + "</div>" +  '-' +   '</div> <span class="badge bg-primary rounded-pill">'  + '</span> </li>')
-          for (let x = 0; x < response.length; x++) {
-             
+          for (let x = 0; x < response.length; x++) {             
           }
       },
       error: function(error) {
@@ -39,6 +38,7 @@ function economia() {
   });                                                                                                                                             
 }
 
+/* API REGISTRO USUARIO*/
 function enviarInformacion(){
   var correo = $("#idcorreito").val();
   var contrasena = $("#idclavecita").val();
@@ -67,13 +67,14 @@ function enviarInformacion(){
   });
 }
 
+/* API INICIO SESION*/
 function ingresarSesion(){
   var correoLogin = $("#idcorreo").val();
   var contrasenaLogin = $("#idclave").val();
 
   var data = {
     nombreFuncion: "ClienteLogin",
-    parametros: [correoLogin,contrasenaLogin]
+    parametros: [correoLogin, contrasenaLogin]
   };
 
   $.ajax({
@@ -108,6 +109,42 @@ function ingresarSesion(){
     }
   });
 }
+
+/* API CREACION PRODUCTO*/
+
+function crearProducto(){
+  var codigo = $("#idcodigo").val();
+  var nombre = $("#idnomproduc").val();
+  var descripcion = $("#iddescripcion").val();
+  var precio = $("#idprecio").val();
+  var stock = $("#idstock").val();
+
+  var data = {
+    nombreFuncion: "ProductoAlmacenar",
+    parametros: [codigo, nombre, descripcion, precio, stock]
+
+  };
+
+  $.ajax({
+    method: "POST",
+    url: "https://fer-sepulveda.cl/API_PLANTAS/api-service.php",
+    data: JSON.stringify(data),
+    success: function (response) {
+      if(response.result[0].RESPUESTA == 'OK') {  
+      } else if (response.result[0].RESPUESTA == 'ERR01') {
+
+      }
+    },
+    error: function (error) {
+      console.log(error);
+    }
+  });
+}
+
+/* API LISTAR PRODCUTOS*/
+/* API REALIZAR COMPRA*/
+/* API LISTADO DE COMPRAS*/
+/* API REINICIAR STOCK PRODUCTOS*/
   
 
     

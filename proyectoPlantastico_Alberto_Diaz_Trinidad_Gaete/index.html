@@ -182,7 +182,7 @@
   <!--API economía-->
   <br>
   <button type="button" class="btn btn-success" onclick="economia()">
-    Mostrar Ind. Económicos
+    Ind. Económicos
 </button>
 
 <br />
@@ -190,6 +190,14 @@
 <ol id="ol_economia" class="list-group list-group-numbered">
 
 </ol>
+
+<!--API creación de producto-->
+<br>
+<button type="button" class="btn btn-success" data-bs-toggle="modal"
+data-bs-target="#mdl_creaProducto">
+  Crear producto
+</button>
+
 
   <!--Modal Inicio sesión-->
   <div class="modal fade" id="mdl_inicioSesion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -227,22 +235,64 @@
       </div>
     </div>
   </div>
+
+
+  <!--Modal crear producto-->
+  <br>
+  <div class="modal fade" id="mdl_creaProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Crear producto</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="idcodigo" class="form-label">Código</label>
+                <input type="text" class="form-control" id="idcodigo" >
+              </div>
+              <div class="mb-3">
+                <label for="idnomproduc" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="idnomproduc" >
+              </div>
+              <div class="mb-3">
+                <label for="iddescripcion" class="form-label">Descripción</label>
+                <input type="form-control" class="form-control" id="iddescripcion" >
+              </div>
+              <div class="mb-3">
+                <label for="idprecio" class="form-label">Precio</label>
+                <input type="text" class="form-control" id="idprecio" >
+              </div>
+              <div class="mb-3">
+                <label for="idstock" class="form-label">Stock</label>
+                <input type="number" class="form-control" id="idstock" >
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                Cancelar
+              </button>
+              <button type="submit" class="btn btn-success" onclick="crearProducto()">
+                Enviar Información
+              </button>  
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!--Modal API Profe-->
   <br>
   <div class="modal fade" id="mdl_apiProfe" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Regístrate aquí</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-
         <div class="modal-body">
-
-          <!--<form action="#" method="POST" id="form1">-->
-            <div class="modal-body">
-    
+            <div class="modal-body">    
               <div class="mb-3">
                 <label for="idcorreito" class="form-label">Correo Electrónico</label>
                 <input type="text" class="form-control" id="idcorreito" >
@@ -260,18 +310,19 @@
                 <input type="text" class="form-control" id="idapellido" >
               </div>
             </div>
-
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="submit" class="btn btn-success" onclick="enviarInformacion()">Enviar Información</button>
-              
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                Cancelar
+              </button>
+              <button type="submit" class="btn btn-success" onclick="enviarInformacion()">
+                Enviar Información
+              </button>              
             </div>
-            
-          <!--</form>-->
         </div>
       </div>
     </div>
   </div>
+
   <!--Footer-->
   <div class="b-example-divider"></div>
 
