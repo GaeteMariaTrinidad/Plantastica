@@ -239,18 +239,29 @@ error: function (error) {
 }
 
 /* API LISTAR PRODCUTOS*/
-
+/* Devuelve resultados pero en Console */
 function listarProducto() {
   $.ajax({
-      url:"https://fer-sepulveda.cl/API_PLANTAS/api-service.php",
+      url:"https://www.fer-sepulveda.cl/API_PLANTAS/api-service.php?nombreFuncion=ProductoListar",
       method: "GET",
       success: function(response) {
           console.log(response);
 
-          $("#ol_producto").empty();
+          $("#ol_productos").empty();
 
-          $("#ol_producto").append('<li class="list-group-item d-flex justify-content-between align-items-start"> <div class="ms-2 me-auto"> <div class="fw-bold">' + response.dolar.valor + "</div>" +  '-' +   '</div> <span class="badge bg-primary rounded-pill">'  + '</span> </li>')
-          for (let x = 0; x < response.length; x++) {             
+          for (let x = 0; x < response.length; x++) {         
+            $("#ol_productos").append(
+              '<li class="list-group-item d-flex justify-content-between align-items-start">' +
+                '<div class="ms-2 me-auto">' +
+                  '<div class="fw-bold">' + response[x].codigo + '</div>' +
+                  '<div class="nombre">' + response[x].nombre + '</div>' +
+                  '<div class="descripcion">' + response[x].descripcion + '</div>' +
+                  '<div class="precio">' + response[x].precio + '</div>' +
+                  '<div class="stock">' + response[x].stock + '</div>' +
+                '</div>' +
+                '<span class="badge bg-primary rounded-pill"></span>' +
+              '</li>'
+            );
           }
       },
       error: function(error) {
@@ -259,9 +270,39 @@ function listarProducto() {
   });                                                                                                                                             
 }
 
+/* API GENERAR CÓDIGO*/
 
+$("#btnGeneraCodigo").click(function() {
+  realizarCompra();
+});
 
-/* API REALIZAR COMPRA*/
+function realizarCompra(){
+  var correo = $("#idcorreoCompra").val();
+
+  var data = {
+    nombreFuncion: "CompraAlmacenar",
+    parametros: [correo]
+
+  };
+
+  $.ajax({
+    method: "POST",
+    url: "https://fer-sepulveda.cl/API_PLANTAS/api-service.php",
+    data: JSON.stringify(data),
+    success: function (response) {
+      if(response.result[0].RESPUESTA == 'OK') {  
+        $("#resultadoCompra").html("Tu código es: " + response.result[0].CODIGO);
+  } else if (response.result == 'ERR01') {
+    $("#resultadoCompra").html("Error");
+    }
+  console.log(response);
+},
+error: function (error) {
+  console.log(error);
+}
+});
+}
+
 
 /* API LISTADO DE COMPRAS*/
 
