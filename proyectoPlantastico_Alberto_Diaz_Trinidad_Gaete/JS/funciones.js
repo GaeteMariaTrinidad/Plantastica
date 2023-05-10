@@ -7,17 +7,6 @@ function validar(){
     } 
 }
 
-/*Button Toast*/
-const toastTrigger = document.getElementById('liveToastBtn')
-const toastLiveExample = document.getElementById('liveToast')
-
-if (toastTrigger) {
-  const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
-  toastTrigger.addEventListener('click', () => {
-    toastBootstrap.show()
-  })
-}
-
 /* API ECONOMIA*/
 function economia() {
   $.ajax({
@@ -44,6 +33,11 @@ function enviarInformacion(){
   var contrasena = $("#idclavecita").val();
   var nombre = $("#idnombre").val();
   var apellido = $("#idapellido").val();
+  
+  console.log(correo);
+  console.log(contrasena);
+  console.log(nombre);
+  console.log(apellido);
 
   var data = {
     nombreFuncion: "ClienteAlmacenar",
@@ -56,15 +50,57 @@ function enviarInformacion(){
     url: "https://fer-sepulveda.cl/API_PLANTAS/api-service.php",
     data: JSON.stringify(data),
     success: function (response) {
-      if(response.result[0].RESPUESTA == 'OK') {  
-      } else if (response.result[0].RESPUESTA == 'ERR01') {
+        if (response.result[0].RESPUESTA == 'OK') {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 4000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
 
-      }
+            Toast.fire({
+                icon: 'success',
+                title: 'Cliente registrado correctamente'
+            });
+
+            $("#txt_nuevoCorreo").val("");
+            $("#txt_nuevoContrasena").val("");
+            $("#txt_nuevoNombre").val("");
+            $("#txt_nuevoApellido").val("");
+
+            var miModal = document.getElementById("exampleModal");
+            $(miModal).modal("hide");
+        } else if (response.result[0].RESPUESTA == 'ERR01') {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 4000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+
+            Toast.fire({
+                icon: 'warning',
+                title: 'Correo ingresado ya se encuentra registrado'
+            });
+        }
+
+
+        console.log(response);
     },
     error: function (error) {
-      console.log(error);
+        console.log(error);
     }
-  });
+});
 }
 
 /* API INICIO SESION*/
@@ -82,32 +118,54 @@ function ingresarSesion(){
     url: "https://fer-sepulveda.cl/API_PLANTAS/api-service.php",
     data: JSON.stringify(data),
     success: function (response) {
-      if (response.result == 'LOGIN OK'){
-        const toast = swal.mixin({
-          toast: true,
-          position: 'top-end',
-          showConfirmButton: false,
-          timer: 4000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.addEventListener('mouseenter', swal.stopTimer)
-            toast.addEventListener('mouseleave', swal.resumeTimer)
+        if (response.result == 'LOGIN OK') {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 4000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+
+            Toast.fire({
+                icon: 'success',
+                title: 'Credenciales correctas'
+            });
+        } else if (response.result == 'LOGIN NOK') {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 4000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            }).then((result) => {
+              // Redirigir al usuario a otra página HTML después de que termine el temporizador de SweetAlert2
+              if (result.dismiss === swal.DismissReason.timer) {
+                window.location.href = 'iniciosesion.html';
+              }
+            });
+
+            Toast.fire({
+                icon: 'warning',
+                title: 'Credenciales inválidas'
+            })
           }
-        })
 
-        toast.fire({
-          icon: 'warning',
-          tittle: 'credenciales inválidas'
-        });
-      }
 
-      console.log(response);
-
+        console.log(response);
     },
     error: function (error) {
-      console.log(error);
+        console.log(error);
     }
-  });
+});
 }
 
 /* API CREACION PRODUCTO*/
@@ -131,20 +189,120 @@ function crearProducto(){
     data: JSON.stringify(data),
     success: function (response) {
       if(response.result[0].RESPUESTA == 'OK') {  
-      } else if (response.result[0].RESPUESTA == 'ERR01') {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 4000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+      })
 
-      }
-    },
-    error: function (error) {
-      console.log(error);
+      Toast.fire({
+          icon: 'success',
+          title: 'Producto ingresado correctamente'
+      });
+  } else if (response.result == 'ERR01') {
+      const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 4000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+      }).then((result) => {
+        // Redirigir al usuario a otra página HTML después de que termine el temporizador de SweetAlert2
+        if (result.dismiss === swal.DismissReason.timer) {
+          window.location.href = 'iniciosesion.html';
+        }
+      });
+
+      Toast.fire({
+          icon: 'warning',
+          title: 'Error al ingresar el producto'
+      })
     }
-  });
+
+
+  console.log(response);
+},
+error: function (error) {
+  console.log(error);
+}
+});
 }
 
 /* API LISTAR PRODCUTOS*/
+
+function listarProducto() {
+  $.ajax({
+      url:"https://fer-sepulveda.cl/API_PLANTAS/api-service.php",
+      method: "GET",
+      success: function(response) {
+          console.log(response);
+
+          $("#ol_producto").empty();
+
+          $("#ol_producto").append('<li class="list-group-item d-flex justify-content-between align-items-start"> <div class="ms-2 me-auto"> <div class="fw-bold">' + response.dolar.valor + "</div>" +  '-' +   '</div> <span class="badge bg-primary rounded-pill">'  + '</span> </li>')
+          for (let x = 0; x < response.length; x++) {             
+          }
+      },
+      error: function(error) {
+          console.log(error);
+      }
+  });                                                                                                                                             
+}
+
+
+
 /* API REALIZAR COMPRA*/
+
 /* API LISTADO DE COMPRAS*/
+
 /* API REINICIAR STOCK PRODUCTOS*/
   
 
-    
+/* REDIRECCION A INICIOSESION*/
+$(document).ready(function() {
+  // Manejar el evento click del botón btnIngresar
+  $('#btnIngresar').click(function() {
+    // Cerrar el modal
+    $('#mdl_inicioSesionl').modal('hide');
+    // Redirigir a otra página HTML después de que se cierre el modal
+    setTimeout(function() {
+      window.location.href = 'iniciosesion.html';
+    }, 4200);
+  });
+});
+
+/* REDIRECCION A INDEX*/
+$(document).ready(function() {
+  // Manejar el evento click del botón btnIngresar
+  $('#btnCreaUsuario').click(function() {
+    // Cerrar el modal
+    $('#mdl_apiProfe').modal('hide');
+    // Redirigir a otra página HTML después de que se cierre el modal
+    setTimeout(function() {
+      window.location.href = 'index.html';
+    }, 4200);
+  });
+});    
+
+/* REDIRECCION DESDE CREAR PRODUCTO*/
+$(document).ready(function() {
+  // Manejar el evento click del botón btnIngresar
+  $('#btnCreaProducto').click(function() {
+    // Cerrar el modal
+    $('#mdl_creaProducto').modal('hide');
+    // Redirigir a otra página HTML después de que se cierre el modal
+    setTimeout(function() {
+      window.location.href = 'iniciosesion.html';
+    }, 4200);
+  });
+}); 

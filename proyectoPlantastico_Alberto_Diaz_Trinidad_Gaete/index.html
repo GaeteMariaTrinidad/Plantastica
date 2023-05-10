@@ -15,6 +15,8 @@
 
   <!-- Libreria JQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
   <link rel="stylesheet" href="CSS/style.css">
@@ -87,11 +89,7 @@
             style="margin-right: 2%;">
             <i class="bi bi-person-lines-fill"></i>Registrarse
           </button>
-          <!--API creación de producto-->
-          <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
-            data-bs-target="#mdl_creaProducto">
-            <i class="bi bi-bag-plus-fill"></i>Crear Producto
-          </button>
+        
         </form>
       </div>
     </div>
@@ -222,9 +220,6 @@
   </div>
 
   <!--
-
-
-
   <button type="button" class="btn btn-success" onclick="economia()">
     Ind. Económicos
   </button>
@@ -270,7 +265,7 @@
 
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-            <button type="submit" class="btn btn-success" onclick="ingresarSesion()">Ingresar</button>
+            <button type="submit" class="btn btn-success" id="btnIngresar" onclick="ingresarSesion()">Ingresar</button>
 
           </div>
 
@@ -281,52 +276,9 @@
   </div>
 
 
-  <!--Modal crear producto-->
-  <br>
-  <div class="modal fade" id="mdl_creaProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Crear producto</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="modal-body">
-            <div class="mb-3">
-              <label for="idcodigo" class="form-label">Código</label>
-              <input type="text" class="form-control" id="idcodigo">
-            </div>
-            <div class="mb-3">
-              <label for="idnomproduc" class="form-label">Nombre</label>
-              <input type="text" class="form-control" id="idnomproduc">
-            </div>
-            <div class="mb-3">
-              <label for="iddescripcion" class="form-label">Descripción</label>
-              <input type="form-control" class="form-control" id="iddescripcion">
-            </div>
-            <div class="mb-3">
-              <label for="idprecio" class="form-label">Precio</label>
-              <input type="text" class="form-control" id="idprecio">
-            </div>
-            <div class="mb-3">
-              <label for="idstock" class="form-label">Stock</label>
-              <input type="number" class="form-control" id="idstock">
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-              Cancelar
-            </button>
-            <button type="submit" class="btn btn-success" onclick="crearProducto()">
-              Enviar Información
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!--Modal API Profe-->
+
+  <!--Modal Registro Usuario-->
   <br>
   <div class="modal fade" id="mdl_apiProfe" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -358,7 +310,7 @@
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
               Cancelar
             </button>
-            <button type="submit" class="btn btn-success" onclick="enviarInformacion()">
+            <button type="submit" class="btn btn-success"  id="btnCreaUsuario" onclick="enviarInformacion()">
               Enviar Información
             </button>
           </div>
