@@ -239,7 +239,6 @@ error: function (error) {
 }
 
 /* API LISTAR PRODCUTOS*/
-/* Devuelve resultados pero en Console */
 function listarProducto() {
   $.ajax({
     method: "GET",
@@ -248,24 +247,45 @@ function listarProducto() {
         console.log(response.result);
         
         const $cardsContainer = $('#div_productos');
+        $cardsContainer.addClass('row');
+
 
         response.result.forEach((card) => {
             // Crear una nueva card con jQuery
-            const $card = $('<div>', { class: 'col-sm-4 mb-4' }).append(
-              $('<div>', { class: 'card' }).append(
+
+            const $card = $('<div>', { class: 'col-md-12 col-sm-12 mb-4' }).attr('id', `card-${card.CODIGO}`).append(
+              
+              $('<div>', { class: 'card h-150' }).append(
                 //$('<img>', { class: 'card-img-top', src: card.image, alt: card.title }),
-                $('<div>', { class: 'card-body' }).append(
+                $('<div>', { class: 'card-body' }).css('overflow', 'auto').append(
                   $('<h5>', { class: 'card-title', text: card.NOMBRE }),
                   $('<p>', { class: 'card-text', text: "Código: " + card.CODIGO }),
                   $('<p>', { class: 'card-text', text: "Descripción: " + card.DESCRIPCION }),
-                  $('<p>', { class: 'card-text', text: "Precio: " + card.PRECIO }),
+                  $('<p>', { class: 'card-text card-precio', text: "Precio: " + card.PRECIO }),
                   $('<p>', { class: 'card-text', text: "Stock: " + card.STOCK }),
+                  $('<div>', { class: 'd-flex justify-content-center' }).append(
+                  $('<button>', { class: 'btn btn-success btn-agregar', text: 'Agregar al carrito' })
+                  
+                  )
                 )
               )
             );
             // Agregar la card al contenedor
-            $cardsContainer.append($card);
-        })
+            $cardsContainer.append($card.wrap('<div class="col-md-4 col-sm-12"></div>').parent());
+        });
+
+        let precioTotal = 0;
+        let codigosSeleccionados = [];
+
+        $cardsContainer.on('click', '.btn-agregar', function() {
+          const $card = $(this).closest('.card');
+          const codigo = $card.attr('id').split('-')[1];
+          const precio = parseFloat($card.find('.card-precio').text().replace('$', ''));
+          precioTotal += precio;
+          codigosSeleccionados.push(codigo);
+          console.log(`Precio total: $${precioTotal.toFixed(2)}`);
+          console.log(`Códigos seleccionados: ${codigosSeleccionados}`);
+        });
     },
     error: function (error) {
         console.log(error);
