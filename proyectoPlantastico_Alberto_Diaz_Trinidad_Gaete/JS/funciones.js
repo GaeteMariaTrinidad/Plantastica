@@ -242,32 +242,35 @@ error: function (error) {
 /* Devuelve resultados pero en Console */
 function listarProducto() {
   $.ajax({
-      url:"https://www.fer-sepulveda.cl/API_PLANTAS/api-service.php?nombreFuncion=ProductoListar",
-      method: "GET",
-      success: function(response) {
-          console.log(response);
+    method: "GET",
+    url: "https://fer-sepulveda.cl/API_PLANTAS/api-service.php?nombreFuncion=ProductoListar",
+    success: function (response) {
+        console.log(response.result);
+        
+        const $cardsContainer = $('#div_productos');
 
-          $("#ol_productos").empty();
-
-          for (let x = 0; x < response.length; x++) {         
-            $("#ol_productos").append(
-              '<li class="list-group-item d-flex justify-content-between align-items-start">' +
-                '<div class="ms-2 me-auto">' +
-                  '<div class="fw-bold">' + response[x].codigo + '</div>' +
-                  '<div class="nombre">' + response[x].nombre + '</div>' +
-                  '<div class="descripcion">' + response[x].descripcion + '</div>' +
-                  '<div class="precio">' + response[x].precio + '</div>' +
-                  '<div class="stock">' + response[x].stock + '</div>' +
-                '</div>' +
-                '<span class="badge bg-primary rounded-pill"></span>' +
-              '</li>'
+        response.result.forEach((card) => {
+            // Crear una nueva card con jQuery
+            const $card = $('<div>', { class: 'col-sm-4 mb-4' }).append(
+              $('<div>', { class: 'card' }).append(
+                //$('<img>', { class: 'card-img-top', src: card.image, alt: card.title }),
+                $('<div>', { class: 'card-body' }).append(
+                  $('<h5>', { class: 'card-title', text: card.NOMBRE }),
+                  $('<p>', { class: 'card-text', text: "Código: " + card.CODIGO }),
+                  $('<p>', { class: 'card-text', text: "Descripción: " + card.DESCRIPCION }),
+                  $('<p>', { class: 'card-text', text: "Precio: " + card.PRECIO }),
+                  $('<p>', { class: 'card-text', text: "Stock: " + card.STOCK }),
+                )
+              )
             );
-          }
-      },
-      error: function(error) {
-          console.log(error);
-      }
-  });                                                                                                                                             
+            // Agregar la card al contenedor
+            $cardsContainer.append($card);
+        })
+    },
+    error: function (error) {
+        console.log(error);
+    }
+});                                                                                                                                         
 }
 
 /* API GENERAR CÓDIGO*/
