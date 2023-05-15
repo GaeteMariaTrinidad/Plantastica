@@ -270,6 +270,7 @@
         </div>
         <div class="modal-body">
           <div class="modal-body">
+            <p class="alert alert-warning" role="alert" id="div_validacion2"></p>
             <div class="mb-3">
               <label for="idcorreito" class="form-label">Correo Electrónico</label>
               <input type="text" class="form-control" id="idcorreito">
@@ -284,7 +285,7 @@
             </div>
             <div class="mb-3">
               <label for="idapellido" class="form-label">Apellido</label>
-              <input type="text" class="form-control" id="idapellido">
+              <input type="text" class="form-control" id="idapellido" required>
             </div>
           </div>
           <div class="modal-footer">
@@ -294,6 +295,7 @@
             <button type="submit" class="btn btn-success"  id="btnCreaUsuario" onclick="enviarInformacion()">
               Enviar Información
             </button>
+            
           </div>
         </div>
       </div>

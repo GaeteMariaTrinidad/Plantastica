@@ -1,6 +1,7 @@
 $(document).ready(function () {
     $("#div_validacion").hide();
-
+    $("#div_validacion2").hide();
+    $("#div_validacion3").hide();
     $("#form1").submit(function (e) {
         var correo = $("#idcorreo").val();
         var clave = $("#idclave").val();
