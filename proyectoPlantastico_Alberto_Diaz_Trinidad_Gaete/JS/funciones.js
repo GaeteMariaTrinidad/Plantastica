@@ -378,7 +378,7 @@ function listarProducto() {
         // Agregar la card al contenedor
         $cardsContainer.append($card.wrap('<div class="col-md-4 col-sm-12"></div>').parent());
       });
-
+      // Para sumar el precio y alcacenar el código del producto  
       let precioTotal = 0;
       let codigosSeleccionados = [];
 
@@ -404,7 +404,7 @@ $("#btnGeneraCodigo").click(function () {
   realizarCompra();
 });
 
-function realizarCompra() {
+function generaCodigo() {
   var correo = $("#idcorreoCompra").val();
 
   var data = {
@@ -418,12 +418,29 @@ function realizarCompra() {
     url: "https://fer-sepulveda.cl/API_PLANTAS/api-service.php",
     data: JSON.stringify(data),
     success: function (response) {
-      if (response.result[0].RESPUESTA == 'OK') {
-        $("#resultadoCompra").html("Tu código es: " + response.result[0].CODIGO);
-      } else if (response.result == 'ERR01') {
-        $("#resultadoCompra").html("Error");
-      }
-      console.log(response);
+      console.log(response.result);
+
+      const $cardsContainer = $('#div_codigo');
+      $cardsContainer.addClass('row');
+
+      response.result.forEach((card) => {
+        // Crear una nueva card con jQuery
+
+        const $card = $('<div>', { class: 'col-md-12 col-sm-12 mb-4' }).append(
+
+          $('<div>', { class: 'card h-150' }).append(
+            //$('<img>', { class: 'card-img-top', src: card.image, alt: card.title }),
+            $('<div>', { class: 'card-body' }).css('overflow', 'auto').append(
+              $('<h5>', { class: 'card-title', text: 'Tu código es: ' }),
+              $('<p>', { class: 'card-text', text: card.RESPUESTA }),             
+            )
+          )
+        );
+        // Agregar la card al contenedor
+        $cardsContainer.append($card.wrap('<div class="col-md-12 col-sm-12"></div>').parent());
+      });
+      
+
     },
     error: function (error) {
       console.log(error);
