@@ -434,39 +434,7 @@ function generaCodigo() {
 
   };
 
-  $.ajax({
-    method: "POST",
-    url: "https://fer-sepulveda.cl/API_PLANTAS/api-service.php",
-    data: JSON.stringify(data),
-    success: function (response) {
-      console.log(response.result);
-
-      const $cardsContainer = $('#div_codigo');
-      $cardsContainer.addClass('row');
-
-      response.result.forEach((card) => {
-        // Crear una nueva card con jQuery
-
-        const $card = $('<div>', { class: 'col-md-12 col-sm-12 mb-4' }).append(
-
-          $('<div>', { class: 'card h-150' }).append(
-            //$('<img>', { class: 'card-img-top', src: card.image, alt: card.title }),
-            $('<div>', { class: 'card-body' }).css('overflow', 'auto').append(
-              $('<h5>', { class: 'card-title', text: 'Tu código es: ' }),
-              $('<p>', { class: 'card-text', text: card.RESPUESTA }),             
-            )
-          )
-        );
-        // Agregar la card al contenedor
-        $cardsContainer.append($card.wrap('<div class="col-md-12 col-sm-12"></div>').parent());
-      });
-      
-
-    },
-    error: function (error) {
-      console.log(error);
-    }
-  });
+  ic
 }
 }
 
