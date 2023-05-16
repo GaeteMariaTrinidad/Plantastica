@@ -358,7 +358,7 @@ function listarProducto() {
       response.result.forEach((card) => {
         // Crear una nueva card con jQuery
 
-        const $card = $('<div>', { class: 'col-md-12 col-sm-12 mb-4' }).attr('id', `card-${card.CODIGO}`).append(
+        const $card = $('<div>', { class: 'col-md-12 col-sm-12 mb-4' }).attr('id-card', `card-${card.CODIGO}`).append(
 
           $('<div>', { class: 'card h-150' }).append(
             //$('<img>', { class: 'card-img-top', src: card.image, alt: card.title }),
@@ -384,8 +384,8 @@ function listarProducto() {
 
       $cardsContainer.on('click', '.btn-agregar', function () {
         const $card = $(this).closest('.card');
-        const codigo = $card.attr('id').split('-')[1];
-        const precio = parseFloat($card.find('.card-precio').text().replace('$', ''));
+        const codigo = $card.attr('id-card');
+        const precio = parseFloat($card.find('.card-precio'));
         precioTotal += precio;
         codigosSeleccionados.push(codigo);
         console.log(`Precio total: $${precioTotal.toFixed(2)}`);
@@ -400,12 +400,33 @@ function listarProducto() {
 
 /* API GENERAR CÓDIGO*/
 
-$("#btnGeneraCodigo").click(function () {
-  realizarCompra();
-});
-
 function generaCodigo() {
   var correo = $("#idcorreoCompra").val();
+  $("#div_validacion4").hide();
+  var enviar = false;
+  var mensaje = "";
+
+  //variable de expresión regular (valida correo electrónico)
+  let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/
+
+  if (correo.trim() == "") {
+    mensaje += "Debe rellenar todos los campos.<br>";
+    enviar = true;
+  }
+  else {
+    if (!regexEmail.test(correo)) {
+      mensaje += "El correo electrónico no es valido.<br>";
+      enviar = true;
+    }
+
+  }
+
+  if (enviar) {
+    $("#div_validacion4").show();
+    $("#div_validacion4").html(mensaje);
+  }
+
+  else {
 
   var data = {
     nombreFuncion: "CompraAlmacenar",
@@ -447,7 +468,7 @@ function generaCodigo() {
     }
   });
 }
-
+}
 
 /* API LISTADO DE COMPRAS*/
 
