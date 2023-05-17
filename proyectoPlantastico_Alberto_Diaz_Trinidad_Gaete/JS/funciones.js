@@ -476,16 +476,39 @@ function generaCodigo() {
 /* API GENERADOR DE COMPRAS*/
 
 function almacenaProducto() {
-
+  /*/
+  $("#div_validacion5").hide();
+  var enviar = false;
+  var mensaje = "";
+  */
   var id_compra = $("#idcodigocompra").val();
   var codigo_producto = $("#idcodproducto").val();
   var cantidad = $("#idcantidadproducto").val();
+  
+  /*
+  if (id_compra.trim() == "" || codigo_producto.trim() == "" || cantidad.trim() == "") {
+      mensaje += "Debe rellenar todos los campos.<br>";
+      enviar = true;
+    } else {
+        if(cantidad < 0){
+          mensaje += "La cantidad no puede ser menor a cero (0).<br>";
+          enviar = true;
+        }  
+    }
+    
 
-  var data = {
-    nombreFuncion: "CompraDetalleAlmacenar",
-    parametros: [id_compra, codigo_producto, cantidad]
+    if (enviar) {
+      $("#div_validacion5").show();
+      $("#div_validacion5").html(mensaje);
+    }
+    else {
+  */
 
-  };
+    var data = {
+      nombreFuncion: "CompraDetalleAlmacenar",
+      parametros: [id_compra, codigo_producto, cantidad]
+
+    };
 
   $.ajax({
     method: "POST",
@@ -505,9 +528,7 @@ function almacenaProducto() {
           $('<div>', { class: 'card h-150' }).append(
             //$('<img>', { class: 'card-img-top', src: card.image, alt: card.title }),
             $('<div>', { class: 'card-body' }).css('overflow', 'auto').append(
-              $('<h5>', { class: 'card-title', text: 'Producto agregado con éxito a tu carrito: ' }),
-              $('<p>', { class: 'card-text', text: card.PRODUCTO }), 
-              $('<p>', { class: 'card-text', text: card.CANTIDAD }),             
+              $('<h5>', { class: 'card-title', text: 'Producto agregado con éxito a tu carrito! ' }),           
             )
           )
         );
@@ -521,6 +542,7 @@ function almacenaProducto() {
       console.log(error);
     }
   });
+/* } */
 } 
 
 

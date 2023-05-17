@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <!-- Libreria JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <link rel="stylesheet" href="CSS/style.css">
+    <script src="JS/validaciones_sesion.js"></script>
+    <script src="JS/funciones.js"></script>
+    <script src="JS/apieconomia.js"></script>
+
+      <title>Ingresar</title>
+      <link rel="icon" href="assets/logo.png" type="image/x-icon">
+
+
+    </head>
+  <body> 
+
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"><h3><img src="assets/logo.png" alt="Logo" class="tamannio_logo">Plantástico</h3></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="donacion.html">Donaciones</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="..." role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Productos
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="plantas.html">Plantas</a></li>
+                <li><a class="dropdown-item" href="maceteros.html">Maceteros</a></li>
+                <li><a class="dropdown-item" href="accesorios.html">Accesorios</a></li>
+                <li><a class="dropdown-item" href="productos.html">Ver todo</a></li>
+              </ul>
+            </li>
+
+          </ul>
+          <form class="d-flex" role="search">
+
+            <!--Carrito de compras-->
+            <a href="carritovacio.html" class="btn"><h3><i class="bi bi-cart3"></i></h3></a>
+            <br>  
+            <!--Inicio de sesión-->
+            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
+            data-bs-target="#mdl_inicioSesion" style="margin-right: 2%;">
+            <i class="bi bi-person-circle"></i> Iniciar sesión
+            </button>
+            <!--Modal registro API profe-->
+            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#mdl_apiProfe"
+            style="margin-right: 2%;">
+            <i class="bi bi-person-lines-fill"></i>Registrarse
+            </button>
+          </form>
+        </div>
+      </div>  
+    </nav>  
+    <div>
+      <br>
+    </div>
+    <!--Mensaje para iniciar sesión-->
+    <div class="card id="#id_mensaje_sesion">
+      <div class="card-body">
+        <h1>Inicia sesión o regístrate para comenzar a comprar!</h1>
+      </div>
+    </div>
+  
+
+
+      <!--Modal Inicio sesión-->
+  <div class="modal fade" id="mdl_inicioSesion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Ingresar </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+
+          <div class="modal-body">
+            <p class="alert alert-warning" role="alert" id="div_validacion"></p>
+            <div class="mb-3">
+              <label for="idcorreo" class="form-label">Correo Electrónico</label>
+              <input type="text" class="form-control" id="idcorreo" placeholder="nombre@correo.com">
+            </div>
+            <div class="mb-3">
+              <label for="idclave" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="idclave" placeholder="Contraseña">
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-success" id="btnIngresar" onclick="ingresarSesion()">Ingresar</button>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Modal Registro Usuario-->
+  <br>
+  <div class="modal fade" id="mdl_apiProfe" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Regístrate aquí</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-body">
+            <p class="alert alert-warning" role="alert" id="div_validacion2"></p>
+            <div class="mb-3">
+              <label for="idcorreito" class="form-label">Correo Electrónico</label>
+              <input type="text" class="form-control" id="idcorreito">
+            </div>
+            <div class="mb-3">
+              <label for="idclavecita" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="idclavecita">
+            </div>
+            <div class="mb-3">
+              <label for="idnombre" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="idnombre">
+            </div>
+            <div class="mb-3">
+              <label for="idapellido" class="form-label">Apellido</label>
+              <input type="text" class="form-control" id="idapellido" required>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Cancelar
+            </button>
+            <button type="submit" class="btn btn-success"  id="btnCreaUsuario" onclick="enviarInformacion()">
+              Enviar Información
+            </button>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!--Footer-->
+    <div class="b-example-divider"></div>
+    <div class="container">
+      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <div class="col-md-4 d-flex align-items-center">  
+          © 2023 Copyright
+        </div>
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+          <li class="ms-3"><a class="text-body-secondary" href="#"><i class="bi bi-instagram" ></i></a></li>
+          <li class="ms-3"><a class="text-body-secondary" href="#"><i class="bi bi-facebook"></i></a></li>
+          <li class="ms-3"><a class="text-body-secondary" href="#"><i class="bi bi-whatsapp"></i></a></li>
+        </ul>
+      </footer>
+    </div>
+  </body>
+</html>

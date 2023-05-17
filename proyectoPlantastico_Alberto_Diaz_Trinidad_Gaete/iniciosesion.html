@@ -24,7 +24,7 @@
     <script src="JS/funciones.js"></script>
     <script src="JS/apieconomia.js"></script>
 
-      <title>Ingresar</title>
+      <title>Perfil de usuario</title>
       <link rel="icon" href="assets/logo.png" type="image/x-icon">
 
 
@@ -65,7 +65,7 @@
             <br>  
             <!--Inicio de sesión-->  
             <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="" style="margin-right: 2%;">
-                <i class="bi bi-person-circle"></i> Hola Fernando!
+                <i class="bi bi-person-circle"></i> Hola @usuario!
             </button>
             
               <!--API creación de producto-->
@@ -77,33 +77,43 @@
         </div>
       </div>  
     </nav>  
-    <!--Datos del usuario-->
-    
+      
+  <!--Datos del usuario-->
+  <br>
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-3">
+        <!-- Aquí puedes colocar una imagen de perfil -->
+        <img src="ruta_de_la_imagen" alt="Imagen de perfil" class="img-fluid">
+      </div>
+      <div class="col-md-4">
+        <!-- Aquí puedes mostrar la información del usuario -->
+        <h2>Nombre de usuario</h2>
+        <p>Correo electrónico: correo@example.com</p>
+        <p>Fecha de nacimiento: 01/01/1990</p>
+        <p>Ubicación: Santiago, Chile</p>
+      </div>
+      <div class="col-md-2">
+        <button type="button" id="btn_listarProducto" class="btn btn-success mx-auto d-block" >
+          Editar perfil
+        </button>
+      </div>
+    </div>
+  </div>
+  
   <!--API listar producto-->
   <br>
         <div class="formulario" id="div_productos">
           <div>
             <button type="button" id="btn_listarProducto" class="btn btn-success mx-auto d-block" onclick="listarProducto()">
-              Listar productos creados
+              Lista de productos creados
             </button>
           </div>
           <div>
             <br>
           </div>
         </div>
-  <!--API listar producto-->
-
-        <br>
-        <div class="formulario" id="div_listaCompras">
-          <div>
-            <button type="button" id="btn_listarCompra" class="btn btn-success mx-auto d-block" onclick="listarCompra()">
-              Ver compras realizadas
-            </button>
-          </div>
-          <div>
-            <br>
-          </div>
-        </div>      
+    
         
           
 

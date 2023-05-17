@@ -4,6 +4,7 @@ $(document).ready(function () {
     $("#div_validacion2").hide();
     $("#div_validacion3").hide();
     $("#div_validacion4").hide();
+    $("#div_validacion5").hide();
     $("#form1").submit(function (e) {
         var correo = $("#idcorreo").val();
         var clave = $("#idclave").val();
