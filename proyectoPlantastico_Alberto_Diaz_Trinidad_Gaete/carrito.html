@@ -64,14 +64,14 @@
             <a href="carrito.html" class="btn"><h3><i class="bi bi-cart3"></i></h3></a>
             <br>  
             <!--Inicio de sesión-->  
-            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="" style="margin-right: 2%;">
+            <button type="button" class="btn btn-outline-success" onclick="window.location.href = 'iniciosesion.html';" data-bs-toggle="modal" data-bs-target="" style="margin-right: 2%;">
                 <i class="bi bi-person-circle"></i> Hola Fernando!
             </button>
             
               <!--API creación de producto-->
             <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
             data-bs-target="#mdl_creaProducto">
-            <i class="bi bi-bag-plus-fill"></i> Crear Producto
+            <i class="bi bi-bag-plus-fill"></i> Ingresar nuevo producto
             </button>
           </form>
         </div>
@@ -96,41 +96,39 @@
             <br>
           </div>
         </div>
+    
         
-          
-
-    <!--Modal Inicio sesión-->
-    <div class="modal fade" id="mdl_inicioSesion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Ingresar </h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-
-          <div class="modal-body">
-
-            <div class="modal-body">
-              <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Correo Electrónico</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="nombre@correo.com">
-              </div>      
-              <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Contraseña</label>
-                  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Contraseña">
-              </div> 
-            </div>
-
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <a href="iniciosesion.html" class="btn btn-success" onclick="validar()">Ingresar</a>
-            </div>
-
-          </div>
+    <!--API Almacenaproducto-->
+    <br>
+    <div class="formulario" id="div_compra">
+      <div>
+        <div class="mb-3">
+          <label for="idcodigocompra" class="form-label">Ingresa tu código de compra: </label>
+          <input type="text" class="form-control" id="idcodigocompra">
         </div>
+        <div class="mb-3">
+          <label for="idcodproducto" class="form-label">Ingresa el código del producto: </label>
+          <input type="text" class="form-control" id="idcodproducto">
+        </div>
+        <div class="mb-3">
+          <label for="idcantidadproducto" class="form-label">Ingresa la cantidad de productos: </label>
+          <input type="number" class="form-control" id="idcantidadproducto">
+        </div>  
+        <button type="button" id="btn_generaCodigo" class="btn btn-success mx-auto d-block" onclick="almacenaProducto()">
+          Agregar producto al carrito
+        </button>
+      </div>
+      <div>
+        <br>
       </div>
     </div>
+    
+    <div class="mb-3">
+      <button type="button" id="btn_generaCodigo" class="btn btn-success mx-auto d-block" onclick="">
+        Finalizar compra
+      </button>
+    </div>
+          
 
   <!--Modal crear producto-->
   <br>

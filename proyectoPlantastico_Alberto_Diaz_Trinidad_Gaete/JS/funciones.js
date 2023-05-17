@@ -366,7 +366,7 @@ function listarProducto() {
               $('<h5>', { class: 'card-title', text: card.NOMBRE }),
               $('<p>', { class: 'card-text', text: "Código: " + card.CODIGO }),
               $('<p>', { class: 'card-text', text: "Descripción: " + card.DESCRIPCION }),
-              $('<p>', { class: 'card-text card-precio', text: "Precio: " + card.PRECIO }),
+              $('<p>', { class: 'card-text card-precio', text: "Precio: $" + card.PRECIO }),
               $('<p>', { class: 'card-text', text: "Stock: " + card.STOCK }),
               $('<div>', { class: 'd-flex justify-content-center' }).append(
                 $('<button>', { class: 'btn btn-success btn-agregar', text: 'Agregar al carrito' })
@@ -434,13 +434,136 @@ function generaCodigo() {
 
   };
 
-  ic
+  $.ajax({
+    method: "POST",
+    url: "https://fer-sepulveda.cl/API_PLANTAS/api-service.php",
+    data: JSON.stringify(data),
+    
+    
+    success: function (response) {
+      console.log(response.result);
+
+    
+
+      const $cardsContainer = $('#div_codigo');
+      $cardsContainer.addClass('row');
+
+      response.result.forEach((card) => {
+        // Crear una nueva card con jQuery
+
+        const $card = $('<div>', { class: 'col-md-12 col-sm-12 mb-4'}).append(
+          $('<div>', { class: 'card h-150' }).append(
+            //$('<img>', { class: 'card-img-top', src: card.image, alt: card.title }),
+            $('<div>', { class: 'card-body' }).css('overflow', 'auto').append(
+              $('<h5>', { class: 'card-title', text: 'Tu código es: ' }),
+              $('<p>', { class: 'card-text', text: card.RESPUESTA }),             
+            )
+          )
+        );
+        // Agregar la card al contenedor
+        $cardsContainer.append($card.wrap('<div class="col-md-12 col-sm-12"></div>').parent());
+      });
+      
+
+    },
+    error: function (error) {
+      console.log(error);
+    }
+  });
 }
 }
 
-/* API LISTADO DE COMPRAS*/
+/* API GENERADOR DE COMPRAS*/
 
-/* API REINICIAR STOCK PRODUCTOS*/
+function almacenaProducto() {
+
+  var id_compra = $("#idcodigocompra").val();
+  var codigo_producto = $("#idcodproducto").val();
+  var cantidad = $("#idcantidadproducto").val();
+
+  var data = {
+    nombreFuncion: "CompraDetalleAlmacenar",
+    parametros: [id_compra, codigo_producto, cantidad]
+
+  };
+
+  $.ajax({
+    method: "POST",
+    url: "https://fer-sepulveda.cl/API_PLANTAS/api-service.php",
+    data: JSON.stringify(data),
+    success: function (response) {
+      console.log(response.result);
+
+      const $cardsContainer = $('#div_compra');
+      $cardsContainer.addClass('row');
+
+      response.result.forEach((card) => {
+        // Crear una nueva card con jQuery
+
+        const $card = $('<div>', { class: 'col-md-12 col-sm-12 mb-4' }).append(
+
+          $('<div>', { class: 'card h-150' }).append(
+            //$('<img>', { class: 'card-img-top', src: card.image, alt: card.title }),
+            $('<div>', { class: 'card-body' }).css('overflow', 'auto').append(
+              $('<h5>', { class: 'card-title', text: 'Producto agregado con éxito a tu carrito: ' }),
+              $('<p>', { class: 'card-text', text: card.PRODUCTO }), 
+              $('<p>', { class: 'card-text', text: card.CANTIDAD }),             
+            )
+          )
+        );
+        // Agregar la card al contenedor
+        $cardsContainer.append($card.wrap('<div class="col-md-12 col-sm-12"></div>').parent());
+      });
+      
+
+    },
+    error: function (error) {
+      console.log(error);
+    }
+  });
+} 
+
+
+
+
+/* API ListarCompras*/
+
+function listarCompra(){
+  $.ajax({
+    url: 'https://www.fer-sepulveda.cl/API_PLANTAS/api-service.php?nombreFuncion=CompraListar&correo=mar.gaetem@duocuc.cl',
+    method: 'GET',
+    success: function (response) {
+      console.log(response.result);
+
+      const $cardsContainer = $('#div_listaCompras');
+      $cardsContainer.addClass('row');
+
+
+      response.result.forEach((card) => {
+        // Crear una nueva card con jQuery
+
+        const $card = $('<div>', { class: 'col-md-12 col-sm-12 mb-4' }).attr('id-card', `card-${card.id_compra}`).append(
+
+          $('<div>', { class: 'card h-150' }).append(
+            
+            $('<div>', { class: 'card-body' }).css('overflow', 'auto').append(
+              $('<h5>', { class: 'card-title', text: card.ID_COMPRA }),
+              $('<p>', { class: 'card-text', text: "Correo: " + card.CORREO }),
+              $('<p>', { class: 'card-text', text: "Fecha: " + card.FECHA }),
+              $('<p>', { class: 'card-text', text: "Detalle:" + card.DETALLE}),
+            ) 
+          )
+        );
+        // Agregar la card al contenedor
+        $cardsContainer.append($card.wrap('<div class="col-md-12 col-sm-12"></div>').parent());
+      });
+    },
+    error: function (error) {
+      console.log(error);
+    }
+  });
+}
+
 
 
 /* REDIRECCION A INICIOSESION
