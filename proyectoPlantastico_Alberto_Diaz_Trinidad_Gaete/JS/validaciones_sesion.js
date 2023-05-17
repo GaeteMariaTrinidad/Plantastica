@@ -1,7 +1,9 @@
 $(document).ready(function () {
+    //Aqui oculto todos los div de los mensajes de error de los formularios para que no esten al iniciarlos
     $("#div_validacion").hide();
     $("#div_validacion2").hide();
     $("#div_validacion3").hide();
+    $("#div_validacion4").hide();
     $("#form1").submit(function (e) {
         var correo = $("#idcorreo").val();
         var clave = $("#idclave").val();
