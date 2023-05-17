@@ -552,7 +552,7 @@ function almacenaProducto() {
 
 function listarCompra(){
   $.ajax({
-    url: 'https://www.fer-sepulveda.cl/API_PLANTAS/api-service.php?nombreFuncion=CompraListar&correo=mar.gaetem@duocuc.cl',
+    url: 'https://www.fer-sepulveda.cl/API_PLANTAS/api-service.php?nombreFuncion=CompraListar&correo=a.diaze@duocuc.cl',
     method: 'GET',
     success: function (response) {
       console.log(response.result);
